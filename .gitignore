@@ -1,0 +1,22 @@
+# Node modules
+flypost_backend/node_modules/
+flypost_frontend/node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build directories
+flypost_frontend/build/
+
+# Environment variables
+.env
+
+.idea/
