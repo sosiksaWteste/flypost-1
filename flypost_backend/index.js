@@ -11,7 +11,7 @@ app.use(cors());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'admin',
+    password: 'administrator',
     database: 'flypost'
 });
 
@@ -28,6 +28,73 @@ app.get('/users', (req, res) => {
             throw err;
         }
         res.json(rows);
+    });
+});
+
+app.get('/clients', (req, res) => {
+    db.query('SELECT * FROM client', (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+});
+
+app.get('/employees', (req, res) => {
+    db.query('SELECT * FROM employee', (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+});
+
+app.get('/packages', (req, res) => {
+    db.query('SELECT * FROM package', (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+});
+
+app.get('/deliveries', (req, res) => {
+    db.query('SELECT * FROM delivery', (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+});
+
+app.get('/payments', (req, res) => {
+    db.query('SELECT * FROM payment', (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+});
+
+app.post('/payments', (req, res) => {
+    let data = req.body.toString();
+
+    db.query(`INSERT INTO payment(payment_data) values(${data});`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.status(200);
+    });
+});
+
+app.post('/users', (req, res) => {
+    let data = req.body.toString();
+
+    db.query(`INSERT INTO payment(payment_data) values(${data});`, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.status(200);
     });
 });
 
